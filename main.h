@@ -6,5 +6,6 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
+int handle_print(const char *fmt, int *index )
 
 #endif // MAIN_H_INCLUDED
