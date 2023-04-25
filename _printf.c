@@ -8,7 +8,7 @@
 */
 int _printf(const char *format, ...)
 {
-		int i, num_char = 0;
+		int i, printed = 0, num_char = 0;
 
 		va_list list;
 
@@ -24,13 +24,10 @@ int _printf(const char *format, ...)
 			else
 			{
 				++i;
-				if (format[i + 1] == '\0')
-				{
-				}
-				else if (format[i] != 'c' && format[i] != 's' && format[i] != '\0')
-				{
-					num_char = num_char + 2;
-				}
+				printed = handle_print(format, &i);
+				if (printed == -1)
+					return (-1);
+				num_char += printed;
 			}
 		}
 		va_end(list);
